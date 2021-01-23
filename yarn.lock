@@ -5181,7 +5181,12 @@ hex-color-regex@^1.1.0:
   resolved "https://registry.npm.taobao.org/hex-color-regex/download/hex-color-regex-1.1.0.tgz#4c06fccb4602fe2602b3c93df82d7e7dbf1a8a8e"
   integrity sha1-TAb8y0YC/iYCs8k9+C1+fb8aio4=
 
-highlight.js@^10.0.0, highlight.js@^10.5.0:
+highlight.js@9.5.0:
+  version "9.5.0"
+  resolved "https://registry.npm.taobao.org/highlight.js/download/highlight.js-9.5.0.tgz#46ae51b9db00f70052bcdf196cd404757b6582ae"
+  integrity sha1-Rq5RudsA9wBSvN8ZbNQEdXtlgq4=
+
+highlight.js@^10.0.0:
   version "10.5.0"
   resolved "https://registry.npm.taobao.org/highlight.js/download/highlight.js-10.5.0.tgz#3f09fede6a865757378f2d9ebdcbc15ba268f98f"
   integrity sha1-Pwn+3mqGV1c3jy2evcvBW6Jo+Y8=

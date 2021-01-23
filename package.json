@@ -58,7 +58,7 @@
     "@vue/shared": "^3.0.0",
     "core-js": "^3.6.5",
     "flyio": "^0.6.2",
-    "highlight.js": "^10.5.0",
+    "highlight.js": "9.5.0",
     "marked": "^1.2.7",
     "regenerator-runtime": "^0.12.1",
     "vue": "^2.6.11",

@@ -11,12 +11,14 @@
 			"style": {
 				"navigationBarTitleText": "编辑"
 			}
+
 		},
 		{
 			"path": "pages/how2use/how2use",
 			"style": {
 				"navigationBarTitleText": "食用方法"
 			}
+
 		},
 		{
 			"path": "pages/priview/priview",
