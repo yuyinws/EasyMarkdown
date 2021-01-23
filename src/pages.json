@@ -1,9 +1,27 @@
 {
-	"pages": [ //pages数组中第一项表示应用启动页，参考：https://uniapp.dcloud.io/collocation/pages
+	"pages": [
 		{
-			"path": "pages/index/index",
+			"path":"pages/index/index",
 			"style": {
-				"navigationBarTitleText": "uni-app"
+				"navigationBarTitleText": "EasyMarkdown"
+			}
+		},
+		{
+			"path": "pages/edit/edit",
+			"style": {
+				"navigationBarTitleText": "编辑"
+			}
+		},
+		{
+			"path": "pages/how2use/how2use",
+			"style": {
+				"navigationBarTitleText": "食用方法"
+			}
+		},
+		{
+			"path": "pages/priview/priview",
+			"style": {
+				"navigationBarTitleText": "预览"
 			}
 		}
 	],
@@ -11,6 +29,13 @@
 		"navigationBarTextStyle": "black",
 		"navigationBarTitleText": "uni-app",
 		"navigationBarBackgroundColor": "#F8F8F8",
-		"backgroundColor": "#F8F8F8"
+		"backgroundColor": "#F8F8F8",
+		"usingComponents":{
+			"van-grid":"/wxcomponents/vant/dist/grid/index",
+			"van-grid-item":"/wxcomponents/vant/dist/grid-item/index",
+			"van-collapse": "/wxcomponents/vant/dist/collapse/index",
+			"van-collapse-item": "/wxcomponents/vant/dist/collapse-item/index"
+		  
+		}
 	}
 }
