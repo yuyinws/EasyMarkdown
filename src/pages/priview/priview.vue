@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: lyc
  * @Date: 2021-01-22 16:02:37
- * @LastEditTime: 2021-01-23 10:44:26
+ * @LastEditTime: 2021-01-27 17:08:40
  * @FilePath: \easy-markdown\src\pages\priview\priview.vue
 -->
 <template>
@@ -31,12 +31,14 @@
             that.fileName = data.fileName
             })
             uni.$once('rawMD',function(data){
-                that.rawMD = data.rawMD
+                that.rawMD = data.rawMD 
                 that.markedMD = that.marked(data.rawMD)
+                console.log(that.markedMD)
             })
             uni.$once('priviewRawMD',function(data){
                 that.rawMD = data.rawMD
                 that.markedMD = that.marked(data.rawMD)
+                console.log(that.markedMD)
             })
             if(event.fileName){
                 that.fileName = event.fileName
@@ -83,5 +85,9 @@
   right:50rpx;
   bottom: 100rpx;
   z-index: 99;
+}
+
+table{
+    border:1px solid
 }
 </style>

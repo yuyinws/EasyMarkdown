@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: lyc
  * @Date: 2021-01-22 14:43:48
- * @LastEditTime: 2021-01-23 16:08:37
+ * @LastEditTime: 2021-01-28 16:50:32
  * @FilePath: \easy-markdown\src\pages\how2use\how2use.vue
 -->
 <template>
@@ -23,7 +23,10 @@
             <br>
             <div style="text-align:center;margin-top:30rpx">
                 <div>更新日志</div>
-                <div>2021-01-23 V1.0.0</div>
+                <div style="margin-top:10rpx">2021-03-27 V1.0.1</div>
+                <div>- md编辑器新增上传图片支持</div>
+                <div>- 对引用块进行了预览优化</div>
+                <div style="margin-top:20rpx">2021-01-23 V1.0.0</div>
                 <div>软件发布</div>
             </div>
         </van-collapse-item>

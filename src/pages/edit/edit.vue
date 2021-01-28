@@ -34,6 +34,12 @@
       <span class="tip" style="margin-left: 41.5%" @click="tip('link')"
         >🔗</span
       >
+      <span class="tip" style="margin-left: 51.5%" @click="uploadImg"
+        >图</span
+      >
+      <span class="tip" style="margin-left: 61.5%" @click="tip('>')"
+        >>&nbsp;</span
+      >
     </div>
     <textarea
       class="markDown"
@@ -48,7 +54,11 @@
         <van-grid-item @click="priview" icon="eye-o" text="预览" />
         <van-grid-item @click="download" icon="down" text="下载" />
         <van-grid-item @click="clear" icon="delete-o" text="清空" />
-        <van-grid-item @click="copy" icon="https://www.yuyinws.top/storage/images/icon/emd-copy.png" text="复制" />
+        <van-grid-item
+          @click="copy"
+          icon="https://www.yuyinws.top/storage/images/icon/emd-copy.png"
+          text="复制"
+        />
       </van-grid>
     </div>
   </div>
@@ -64,19 +74,6 @@ export default {
     };
   },
   onLoad() {
-    this.marked.setOptions({
-      renderer: new this.marked.Renderer(),
-      highlight: (code) => {
-        return this.hljs.highlightAuto(code).value;
-      },
-      gfm: true,
-      tables: true,
-      breaks: true,
-      pedantic: false,
-      sanitize: false,
-      smartLists: true,
-      smartypants: false,
-    });
     let that = this;
     uni.$once("editFileName", function (data) {
       that.fileName = data.fileName;
@@ -86,26 +83,47 @@ export default {
     });
   },
   methods: {
-    copy(){
-      let that = this
-      if(!that.rawMD){
-        return
+    uploadImg(){
+        wx.chooseImage({
+          count: 1,
+          sizeType: ["original", "compressed"],
+          sourceType: ["album", "camera"],
+          success:async (res) => {
+            wx.uploadFile({
+              url: "https://www.yuyinws.top/api/imgUpload",
+              filePath: res.tempFilePaths[0],
+              name: "file",
+              success: (res) => {
+                console.log(res)
+                let data = JSON.parse(res.data)
+                this.rawMD = this.rawMD + '![image](' + data.url + ')';
+              },
+              fail: (err) => {
+                console.log(err);
+              },
+            });
+          },
+        });
+    },
+    copy() {
+      let that = this;
+      if (!that.rawMD) {
+        return;
       }
       uni.setClipboardData({
-        data:that.rawMD
-      })
+        data: that.rawMD,
+      });
     },
     clear() {
       let that = this;
-      if(!that.rawMD){
-        return
+      if (!that.rawMD) {
+        return;
       }
       uni.showModal({
-        content:
-          "确定要清空文档内容吗?",
+        content: "确定要清空文档内容吗?",
         buttonText: "确定",
         success: () => {
-          that.rawMD = ""
+          that.rawMD = "";
         },
       });
     },
@@ -116,6 +134,7 @@ export default {
         tip = "[url](https://)";
       }
       this.rawMD = this.rawMD + tip;
+      console.log(this.rawMD)
     },
     check() {
       if (!this.fileName) {

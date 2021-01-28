@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: lyc
  * @Date: 2021-01-22 15:36:13
- * @LastEditTime: 2021-01-23 14:41:51
+ * @LastEditTime: 2021-01-27 17:46:26
  * @FilePath: \easy-markdown\src\pages\index\index.vue
 -->
 <template>
@@ -24,14 +24,25 @@
             <img src="https://www.yuyinws.top/storage/images/icon/emd-how2Use.png" class="priview-logo">
             <span style="display:block;text-align:center;color:#606266">食用方法</span>
         </div>
-        <!-- <van-button @click="toPriviewPage" type="info">预览文件</van-button>
-        
-        <van-button type="info" >新建文件</van-button> -->
+        <div class="info">
+            <span style="display:block">{{version}}</span>
+            <span>Copyright © {{year}} YuYin</span>
+            
+        </div>
     </div>
 </template>
 
 <script>
     export default {
+        mounted () {
+            this.getVersion();
+        },
+        data() {
+            return {
+                year: new Date().getFullYear(),
+                version : 'V1.0.1'
+            }
+        },
         methods: {
         toPriviewPage(){
             var fsm = wx.getFileSystemManager();
@@ -73,6 +84,13 @@
             uni.navigateTo({
                 url:"/pages/how2use/how2use"
             })
+        },
+        getVersion(){
+            const info = wx.getAccountInfoSync()
+            if(info.miniProgram.version){
+                this.version = info.miniProgram.version
+            }
+            
         }
         },
 
@@ -98,5 +116,14 @@
     height:100rpx;
     margin-left:325rpx;
     margin-top:50rpx
+}
+
+.info{
+    width:100%;
+    position: absolute;
+    bottom: 30rpx;
+    text-align: center;
+    color: #909399;
+    font-size:28rpx
 }
 </style>
