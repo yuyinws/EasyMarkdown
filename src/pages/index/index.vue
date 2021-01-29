@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: lyc
  * @Date: 2021-01-22 15:36:13
- * @LastEditTime: 2021-01-27 17:46:26
+ * @LastEditTime: 2021-01-29 14:52:27
  * @FilePath: \easy-markdown\src\pages\index\index.vue
 -->
 <template>
@@ -40,7 +40,7 @@
         data() {
             return {
                 year: new Date().getFullYear(),
-                version : 'V1.0.1'
+                version : 'V1.2.0',
             }
         },
         methods: {
@@ -54,7 +54,6 @@
                         setTimeout(() => {
                             uni.$emit('fileName',{fileName:res.tempFiles[0].name.split('.')[0]})
                         },500)
-                        //uni.$emit('update',{msg:'页面更新'})
                         fsm.readFile({
                             filePath:res.tempFiles[0].path,
                             encoding:"utf-8",

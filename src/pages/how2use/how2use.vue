@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: lyc
  * @Date: 2021-01-22 14:43:48
- * @LastEditTime: 2021-01-28 16:50:32
+ * @LastEditTime: 2021-01-29 14:32:50
  * @FilePath: \easy-markdown\src\pages\how2use\how2use.vue
 -->
 <template>
@@ -21,13 +21,8 @@
             <br>
             本软件承诺不会添加任何广告！
             <br>
-            <div style="text-align:center;margin-top:30rpx">
-                <div>更新日志</div>
-                <div style="margin-top:10rpx">2021-03-27 V1.0.1</div>
-                <div>- md编辑器新增上传图片支持</div>
-                <div>- 对引用块进行了预览优化</div>
-                <div style="margin-top:20rpx">2021-01-23 V1.0.0</div>
-                <div>软件发布</div>
+            <div style="text-align:center;margin-top:30rpx;font-size:28rpx">
+                <wemark :md="updateLog" link highlight type="wemark"></wemark>
             </div>
         </van-collapse-item>
         <van-collapse-item title="关于作者" name="4">
@@ -45,11 +40,12 @@
     export default {
         data() {
             return {
-                active: ""
+                active: "",
+                updateLog:""
             }
         },
         mounted () {
-            ;
+            this.getUpdateLog();
         },
         methods: {
            onChange(event){
@@ -78,6 +74,20 @@
                            icon:"none",
                            duration:2000
                        })
+                   }
+               })
+           },
+           getUpdateLog(){
+               uni.request({
+                   url:"https://www.yuyinws.top/api/updateLog",
+                   method:"GET",
+                   success:(res) => {
+                       if(res.data.code == 200){
+                           this.updateLog = res.data.data
+                       }
+                   },
+                   fail:(err) => {
+                       console.log(err)
                    }
                })
            }

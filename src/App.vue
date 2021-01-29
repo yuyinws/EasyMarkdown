@@ -1,7 +1,7 @@
 <script>
 	export default {
 		onLaunch: function() {
-			this.initMarked();
+			//this.initMarked();
 			this.checkUpdate();
 
 		},
@@ -12,36 +12,36 @@
 			//console.log('App Hide')
 		},
 		methods: {
-			initMarked() {
-				let render = new this.marked.Renderer()
-				render.image = function(href,title,text){
-					return `<img src="${href}" class="md_img" >`
-				};
-				render.blockquote = function(quote){
-					return `<blockquote class="md_blockquote"><p>${quote}</p></blockquote>`
-				};
-				render.table = function(header,body){
-					return `<div class="md_table">${header}${body}</div>`
-				};
-				render.codespan = function(src){
-					return `${src}1212`
-					//return `<pre><code class="language-${infostring}">${code}</code></pre>`
-				};
-				this.marked.setOptions({
-				renderer: render,
-				highlight: (code,language) => {
-					const validLanguage = this.hljs.getLanguage(language) ? language : 'plaintext';
-					return this.hljs.highlight(validLanguage, code).value;
-				},
-				gfm: true,
-				tables: true,
-				breaks: true,
-				pedantic: false,
-				sanitize: false,
-				smartLists: true,
-				smartypants: false,
-				});
-			},
+			// initMarked() {
+			// 	let render = new this.marked.Renderer()
+			// 	render.image = function(href,title,text){
+			// 		return `<img src="${href}" class="md_img" >`
+			// 	};
+			// 	render.blockquote = function(quote){
+			// 		return `<blockquote class="md_blockquote"><p>${quote}</p></blockquote>`
+			// 	};
+			// 	render.table = function(header,body){
+			// 		return `<div class="md_table">${header}${body}</div>`
+			// 	};
+			// 	render.codespan = function(src){
+			// 		return `${src}1212`
+			// 		//return `<pre><code class="language-${infostring}">${code}</code></pre>`
+			// 	};
+			// 	this.marked.setOptions({
+			// 	renderer: render,
+			// 	highlight: (code,language) => {
+			// 		const validLanguage = this.hljs.getLanguage(language) ? language : 'plaintext';
+			// 		return this.hljs.highlight(validLanguage, code).value;
+			// 	},
+			// 	gfm: true,
+			// 	tables: true,
+			// 	breaks: true,
+			// 	pedantic: false,
+			// 	sanitize: false,
+			// 	smartLists: true,
+			// 	smartypants: false,
+			// 	});
+			// },
 			checkUpdate(){
 				const updateManager = wx.getUpdateManager()
 				updateManager.onCheckForUpdate(function (res) {

@@ -2,13 +2,16 @@
  * @Descripttion: 
  * @Author: lyc
  * @Date: 2021-01-22 16:02:37
- * @LastEditTime: 2021-01-27 17:08:40
+ * @LastEditTime: 2021-01-29 14:19:15
  * @FilePath: \easy-markdown\src\pages\priview\priview.vue
 -->
 <template>
     <div style="height:100%;position:absolute;width:100%">
         <!-- <button @click="toEditPage">编辑</button> -->
-        <div class="preview" v-html="markedMD"></div>
+        <div class="preview">
+            <wemark :md="rawMD" link highlight type="wemark"></wemark>
+        </div>
+        
         <img @click="toEditPage" src="https://www.yuyinws.top/storage/images/icon/emd-edit.png" class="edit">
     </div>
 </template>
@@ -19,7 +22,6 @@
             return {
                 fileName:"",
                 rawMD:"",
-                markedMD:""
             }
         },
         onLoad(event){
@@ -32,13 +34,9 @@
             })
             uni.$once('rawMD',function(data){
                 that.rawMD = data.rawMD 
-                that.markedMD = that.marked(data.rawMD)
-                console.log(that.markedMD)
             })
             uni.$once('priviewRawMD',function(data){
                 that.rawMD = data.rawMD
-                that.markedMD = that.marked(data.rawMD)
-                console.log(that.markedMD)
             })
             if(event.fileName){
                 that.fileName = event.fileName

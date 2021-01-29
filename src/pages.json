@@ -36,8 +36,8 @@
 			"van-grid":"/wxcomponents/vant/dist/grid/index",
 			"van-grid-item":"/wxcomponents/vant/dist/grid-item/index",
 			"van-collapse": "/wxcomponents/vant/dist/collapse/index",
-			"van-collapse-item": "/wxcomponents/vant/dist/collapse-item/index"
-		  
+			"van-collapse-item": "/wxcomponents/vant/dist/collapse-item/index",
+			"wemark":"/wxcomponents/wemark/wemark"
 		}
 	}
 }

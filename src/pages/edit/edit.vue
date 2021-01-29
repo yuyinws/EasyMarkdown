@@ -40,6 +40,9 @@
       <span class="tip" style="margin-left: 61.5%" @click="tip('>')"
         >>&nbsp;</span
       >
+      <span class="tip" style="margin-left: 71.5%" @click="tip('table')"
+        >表</span
+      >
     </div>
     <textarea
       class="markDown"
@@ -88,7 +91,7 @@ export default {
           count: 1,
           sizeType: ["original", "compressed"],
           sourceType: ["album", "camera"],
-          success:async (res) => {
+          success:(res) => {
             wx.uploadFile({
               url: "https://www.yuyinws.top/api/imgUpload",
               filePath: res.tempFilePaths[0],
@@ -132,6 +135,8 @@ export default {
         tip = "``` js\ninput your code\n```";
       } else if (tip == "link") {
         tip = "[url](https://)";
+      } else if (tip == 'table'){
+        tip = "|h|h|\n|--|--|\n|b|b|"
       }
       this.rawMD = this.rawMD + tip;
       console.log(this.rawMD)
@@ -177,7 +182,7 @@ export default {
                 uni.hideToast();
                 uni.showModal({
                   content:
-                    "下载链接已经保存到剪切板，请打开浏览器进行下载。下载有效期为1个小时!",
+                    "下载链接已经保存到剪切板，请打开浏览器进行下载。下载有效期为24小时!",
                   showCancel: false,
                   buttonText: "确定",
                   success: () => {},
