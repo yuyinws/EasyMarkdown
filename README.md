@@ -19,7 +19,9 @@
 
 ## 软件信息
 小程序名：**EasyMarkdown** 
+
 二维码：
+
   ![gh_896a9d04e1d1_258](https://i.loli.net/2021/01/29/a3Hvf95wz2K8ZRu.jpg) 
 
   欢迎大家进行体验并提出修改意见~
