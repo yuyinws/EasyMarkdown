@@ -2,7 +2,7 @@
  * @Descripttion: 
  * @Author: lyc
  * @Date: 2021-01-22 14:43:48
- * @LastEditTime: 2021-01-29 14:32:50
+ * @LastEditTime: 2021-03-19 14:09:34
  * @FilePath: \easy-markdown\src\pages\how2use\how2use.vue
 -->
 <template>
@@ -19,6 +19,11 @@
             <span @click="copy" style="color:#3498db">GitHub</span>
             开源，欢迎大家来交流。
             <br>
+            
+            <span>邮箱联系方式：</span><span style="color:#3498db" @click="email">lyc657508366@outlook.com</span>
+            <br>
+            <span>QQ联系方式：</span><span style="color:#3498db" @click="qq">657508366</span>
+            <br>
             本软件承诺不会添加任何广告！
             <br>
             <div style="text-align:center;margin-top:30rpx;font-size:28rpx">
@@ -28,6 +33,7 @@
         <van-collapse-item title="关于作者" name="4">
             我是一个业余的独立软件开发者。如果你想了解我更多欢迎来访问
             <span @click="blog" style="color:#3498db">我的博客。</span>
+            <span></span>
             <br>
             <span>如果你喜欢本软件，不妨请我喝杯奶茶吧！(❁´◡`❁)</span>
             <img src="https://www.yuyinws.top/storage/images/icon/donate.png" style="width:600rpx;height:600rpx">
@@ -66,11 +72,37 @@
            },
            blog(){
                uni.setClipboardData({
-                   data:"https://www.yuyinws.top/blog",
+                   data:"https://yuyinws.github.io",
                    success:() => {
                        uni.hideToast()
                        uni.showToast({
                            title:"博客地址已复制!",
+                           icon:"none",
+                           duration:2000
+                       })
+                   }
+               })
+           },
+           email(){
+               uni.setClipboardData({
+                   data:"lyc657508366@outlook.com",
+                   success:() => {
+                       uni.hideToast()
+                       uni.showToast({
+                           title:"邮箱地址已复制!",
+                           icon:"none",
+                           duration:2000
+                       })
+                   }
+               })
+           },
+           qq(){
+               uni.setClipboardData({
+                   data:"657508366",
+                   success:() => {
+                       uni.hideToast()
+                       uni.showToast({
+                           title:"QQ已复制!",
                            icon:"none",
                            duration:2000
                        })
